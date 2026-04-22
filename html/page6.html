@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính học phí</title>
+    <link rel="stylesheet" href="../css/style6.css">
+</head>
+<body>
+
+<h1>TÍNH HỌC PHÍ</h1>
+
+<div class="container">
+
+    <div class="row">
+        <input type="text" id="ten" placeholder="Nhập tên">
+        <input type="number" id="stc" placeholder="Nhập số tín chỉ">
+        <button onclick="them()">Thêm</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>STC</th>
+                <th>Học phí</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody id="danhsach">
+            <tr>
+                <td>Nguyễn Văn A</td>
+                <td>3</td>
+                <td>1,500,000</td>
+                <td><button onclick="xoa(this)">Xóa</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+function them() {
+    let ten = document.getElementById("ten").value;
+    let stc = document.getElementById("stc").value;
+
+    if (ten === "" || stc === "") {
+        alert("Nhập đầy đủ!");
+        return;
+    }
+
+    let hocphi = stc * 500000;
+
+    let row = `
+        <tr>
+            <td>${ten}</td>
+            <td>${stc}</td>
+            <td>${hocphi.toLocaleString()}</td>
+            <td><button onclick="xoa(this)">Xóa</button></td>
+        </tr>
+    `;
+
+    document.getElementById("danhsach").innerHTML += row;
+
+    // reset input
+    document.getElementById("ten").value = "";
+    document.getElementById("stc").value = "";
+}
+
+function xoa(btn) {
+    btn.parentElement.parentElement.remove();
+}
+</script>
+
+</body>
+</html>

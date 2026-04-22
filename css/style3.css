@@ -1,0 +1,65 @@
+:root{
+  --bg:#f1a4c1;
+  --card:#f3c0f5;
+  --primary:#ffffff;
+}
+
+*{box-sizing:border-box;margin:0}
+
+body{
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+form{
+  width:100%;
+  max-width:400px;
+  background:var(--card);
+  padding:20px;
+  border-radius:8px;
+}
+
+legend{
+  font-size:1.2rem;
+  margin-bottom:10px;
+}
+
+label{
+  display:block;
+  margin:10px 0 5px;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+.inline input{
+  width:auto;
+  margin-right:5px;
+}
+
+.inline{
+  margin-bottom:10px;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  margin-top:15px;
+  background:var(--primary);
+  color:#ec6c93;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#f7f1f4;
+}

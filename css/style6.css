@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #dd6868;
+    color: white;
+}
+
+td button {
+    background: #ffffff;
+}
+
+td button:hover {
+    background: #e46464;
+}

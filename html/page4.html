@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang = "vi">
+    <head>
+        <meta charset="UTF-8">
+        <title> Hóa Đơn Thanh Toán </title>
+        
+    <link rel="stylesheet" href="../css/style4.css">
+    </head>
+    <body> 
+        <h2> Hóa Đơn Thanh Toán</h2>
+        <table border="1" cellpadding = "10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th> Số Thứ Tự </th>
+                    <th> Tên Sản Phẩm</th>
+                    <th> Số Lượng</th>
+                    <th> Đơn Giá</th>
+                    <th> Thành Tiền</th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>A</td>
+                <td class="sl">3</td>
+                <td class="dongia">1000</td>
+                <td class="tt">?</td>
+            </tr>
+             <tr>
+                <td>2</td>
+                <td>B</td>
+                <td class="sl">4</td>
+                <td class="dongia">2000</td>
+                <td class="tt">?</td>
+            </tr>
+             <tr>
+                <td>3</td>
+                <td>C</td>
+                <td class="sl">5</td>
+                <td class="dongia">4000</td>
+                <td class="tt">?</td>
+            </tr>
+             <tr>
+                <td>4</td>
+                <td>D</td>
+                <td class="sl">2</td>
+                <td class="dongia">5000</td>
+                <td class="tt">?</td>
+             </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" align="center">Tổng Thanh Toán</td>
+                <td id="tong">?</td>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+            <script>
+                const donGia = document.getElementsByClassName("dg");
+                const soLuong = document.getElementsByClassName("sl");
+                const thanhTien= document.getElementsByClassName("tt");
+                let tong = 0 ;
+                for (let i = 0 ; i<donGia.length;i++) {
+                    let gia = parseInt(donGia[i].innerHTML)
+                    let luong = parseInt(soLuong[i].innerHTML)
+                    let st = gia * luong ;
+                    thanhTien[i].innerHTML = st ; 
+                    tong = tong + st ;
+                }
+                document.getElementById("tong").innerHTML = tong ;
+            </script>      
+    </body>
+</html>
