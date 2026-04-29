@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng sản phẩm</title>
+    <link rel="stylesheet" href="../css/style7.css">
+</head>
+<body>
+    <script>
+
+        const myDiv = document.createElement("div");
+        myDiv.className = "product-item";
+
+        const myDiv1 = document.createElement("div");
+        myDiv1.className = "product-image";
+        
+        const productImg=document.createElement("img");
+        productImg.setAttribute("src","../assets/images/2.jpg");
+        productImg.setAttribute("alt","Gấu Bông Kitty");
+        myDiv1.appendChild(productImg);
+        myDiv.appendChild(myDiv1);
+
+        const myDiv2 = document.createElement("div");
+        myDiv2.className = "product-info";
+        myDiv.appendChild(myDiv2);
+
+        const p1=document.createElement("p");
+        p1.textContent="Tên sản phẩm: Gấu Bông Kitty";
+        p1.className = "name";
+
+        const p2=document.createElement("p");
+        p2.textContent="Giá sản phẩm: 210.000 nghìn";
+        p2.className = "price";
+        
+        const p3=document.createElement("p");
+        p3.textContent="Tình trạng sản phẩm: Còn khoảng 600 con";
+        p3.className = "status";
+
+        const link=document.createElement("a");
+        link.setAttribute("href","#");
+        link.textContent="Chi tiết sản phẩm";
+        
+        myDiv2.appendChild(p1);
+        myDiv2.appendChild(p2);
+        myDiv2.appendChild(p3);
+        myDiv2.appendChild(link);
+
+        myDiv.appendChild(myDiv1);
+        myDiv.appendChild(myDiv2);
+
+        document.body.appendChild(myDiv);
+    </script>
+</body>
+
+
+
+        
+
+
+
+
+
