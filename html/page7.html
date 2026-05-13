@@ -2,61 +2,119 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Bảng sản phẩm</title>
+    <title>Thông tin sản phẩm</title>
     <link rel="stylesheet" href="../css/style7.css">
+    
 </head>
 <body>
+
     <script>
+        const products = [
+            {
+                name: "Gấu Bông Kitty",
+                price: "210.000 VNĐ",
+                status: "Đang về hàng",
+                img: "../assets/images/2.jpg"
+            },
+            {
+                name: "Gấu Bông Cá Mập",
+                price: "120.000 VNĐ",
+                status: "Còn khoảng 300 con",
+                img: "../assets/images/3.jpg"
+            },
+            {
+                name: "Thỏ Bông Teddy",
+                price: "370.000 VNĐ",
+                status: "Hết hàng",
+                img: "../assets/images/4.jpg"
+            },
+            {
+                name: "Mèo Bông Dinga",
+                price: "260.000 VNĐ",
+                status: "Số lượng ít",
+                img: "../assets/images/5.jpg"
+            },
+            {
+                name: "Chó Shiba Bông cỡ lớn",
+                price: "310.000 VNĐ",
+                status: "Còn khoảng 20 con",
+                img: "../assets/images/6.jpg"
+            },
+            {
+                name: "Gấu bông Cushin",
+                price: "220.000 VNĐ",
+                status: "Hàng mới về",
+                img: "../assets/images/7.jpg"
+            },
+            {
+                name: "Gấu bông vịt LaLa",
+                price: "260.000 VNĐ",
+                status: "Số lượng ít",
+                img: "../assets/images/8.jpg"
+            },
+            {
+                name: "Khủng Long Xanh",
+                price: "165.000 VNĐ",
+                status: "Hết Hàng",
+                img: "../assets/images/9.jpg"
+            },
+            {
+                name: "Gấu bông Hà Mã",
+                price: "199.000 VNĐ",
+                status: "Hàng mới",
+                img: "../assets/images/10.jpg"
+            }
 
-        const myDiv = document.createElement("div");
-        myDiv.className = "product-item";
+        ];
 
-        const myDiv1 = document.createElement("div");
-        myDiv1.className = "product-image";
-        
-        const productImg=document.createElement("img");
-        productImg.setAttribute("src","../assets/images/2.jpg");
-        productImg.setAttribute("alt","Gấu Bông Kitty");
-        myDiv1.appendChild(productImg);
-        myDiv.appendChild(myDiv1);
+        function createProductCard(item) {
+            // Container chính
+            const myDiv = document.createElement("div");
+            myDiv.className = "product-item";
 
-        const myDiv2 = document.createElement("div");
-        myDiv2.className = "product-info";
-        myDiv.appendChild(myDiv2);
+            const myDiv1 = document.createElement("div");
+            myDiv1.className = "product-image";
+            const productImg = document.createElement("img");
+            productImg.setAttribute("src", item.img);
+            productImg.setAttribute("alt", item.name);
+            myDiv1.appendChild(productImg);
 
-        const p1=document.createElement("p");
-        p1.textContent="Tên sản phẩm: Gấu Bông Kitty";
-        p1.className = "name";
+            const myDiv2 = document.createElement("div");
+            myDiv2.className = "product-info";
 
-        const p2=document.createElement("p");
-        p2.textContent="Giá sản phẩm: 210.000 nghìn";
-        p2.className = "price";
-        
-        const p3=document.createElement("p");
-        p3.textContent="Tình trạng sản phẩm: Còn khoảng 600 con";
-        p3.className = "status";
+            const p1 = document.createElement("p");
+            p1.textContent = "Tên sản phẩm: " + item.name;
+            p1.className = "name";
 
-        const link=document.createElement("a");
-        link.setAttribute("href","#");
-        link.textContent="Chi tiết sản phẩm";
-        
-        myDiv2.appendChild(p1);
-        myDiv2.appendChild(p2);
-        myDiv2.appendChild(p3);
-        myDiv2.appendChild(link);
+            const p2 = document.createElement("p");
+            p2.textContent = "Giá: " + item.price;
+            p2.className = "price";
+            
+            const p3 = document.createElement("p");
+            p3.textContent = "Tình trạng: " + item.status;
+            p3.className = "status";
 
-        myDiv.appendChild(myDiv1);
-        myDiv.appendChild(myDiv2);
+            const link = document.createElement("a");
+            link.setAttribute("href", "#");
+            link.textContent = "Chi tiết sản phẩm";
+            
+            myDiv2.appendChild(p1);
+            myDiv2.appendChild(p2);
+            myDiv2.appendChild(p3);
+            myDiv2.appendChild(link);
 
-        document.body.appendChild(myDiv);
+            myDiv.appendChild(myDiv1);
+            myDiv.appendChild(myDiv2);
+
+            return myDiv;
+        }
+
+        // 3. Vòng lặp để đưa tất cả sản phẩm ra màn hình
+        products.forEach(product => {
+            const productCard = createProductCard(product);
+            document.body.appendChild(productCard);
+        });
+
     </script>
 </body>
-
-
-
-        
-
-
-
-
-
+</html>

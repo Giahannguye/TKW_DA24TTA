@@ -1,55 +1,81 @@
-.product-item {
-    width: 400px;
-    border: 5px solid #333;        
-    border-radius: 20px;           
-    background-color: #fff;        
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
-    padding: 10px;
-    margin: 20px auto;
+/* Tổng thể trang */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
 }
 
+#product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+/* Từng ô sản phẩm */
+.product-item {
+    background: #fff;
+    border-radius: 12px;
+    width: 260px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Hình ảnh */
 .product-image img {
     width: 100%;
-    border-radius: 30px;
+    height: 220px;
+    object-fit: cover; 
 }
 
 .product-info {
-    margin-top: 10px;
-}
-
-.product-info p {
-    margin: 5px 0;
-}
-
-.product-info a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 6px 10px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-.product-info p {
-    border: 1px solid #ccc;
-    padding: 8px;
-    margin: 6px 0;
-    border-radius: 6px;
-    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
 }
 
 .name {
+    font-size: 1.1em;
     font-weight: bold;
-    background-color: #000000;
+    margin: 10px 0;
+    color: #333;
 }
 
 .price {
-    color: rgb(0, 0, 0);
+    color: #ac2d6f;
+    font-size: 1.2em;
     font-weight: bold;
-    background-color: #ffebfe;
+    margin-bottom: 8px;
 }
 
 .status {
-    color: rgb(0, 0, 0);
-    background-color: #e8f5e9;
+    font-size: 0.9em;
+    color: #b23a96;
+    margin-bottom: 15px;
+}
+
+.btn-detail {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: 0.3s;
+}
+
+.btn-detail:hover {
+    background-color: #2980b9;
 }
