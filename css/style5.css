@@ -1,56 +1,86 @@
+/* Định dạng phông nền chung cho toàn trang web */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
     text-align: center;
-    background: #f4f6f8;
+    padding: 30px 15px;
+    margin: 0;
 }
 
 h1 {
-    margin: 20px;
-    color: #2d3436;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 28px;
 }
 
-table {
-    border-collapse: collapse;
-    margin: auto;
-    width: 75%;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-th, td {
-    border: 1px solid #dcdde1;
-    padding: 12px;
-    text-align: center;
+.guide-text {
+    color: #7f8c8d;
     font-size: 16px;
+    margin-bottom: 25px;
 }
 
-thead th {
-    background: #be91e2;
+/* Khu vực quản lý bố cục hàng nút bấm */
+.menu-buttons {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+/* Định dạng các nút bấm số */
+.btn {
+    background-color: #3498db;
     color: white;
-}
-
-tbody th {
-    background: #dfe6e9;
-    color: #2d3436;
-}
-
-tbody tr:nth-child(even) {
-    background: #f8f9fa;
-}
-
-.five {
-    background: #ffeaa7;
+    border: none;
+    padding: 12px 22px;
+    margin: 6px;
+    font-size: 16px;
     font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+    transition: all 0.2s ease;
 }
 
-.diagonal {
-    background: #8a7ee2;
-    color: white;
+/* Hiệu ứng khi di chuột hoặc tương tác nút */
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(41, 128, 185, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Khung bảng số hiển thị để học */
+.table-container {
+    background-color: #ffffff;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-top: 6px solid #2ecc71;
+}
+
+.table-title {
+    font-size: 24px;
     font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #edf2f7;
+    padding-bottom: 12px;
 }
 
-td:hover {
-    background: #d28ee7;
-    transition: 0.2s;
+/* Từng dòng phép tính hiển thị cụ thể */
+.dong-tinh {
+    font-size: 22px;
+    padding: 10px 0;
+    color: #34495e;
+    font-family: 'Courier New', Courier, monospace; /* Giúp các chữ số thẳng hàng dọc */
+    border-bottom: 1px dashed #f1f3f5;
+}
+
+/* Xóa đường gạch đứt đoạn ở dòng cuối cùng */
+.dong-tinh:last-child {
+    border-bottom: none;
 }
