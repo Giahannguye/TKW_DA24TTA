@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Chi tiết sản phẩm</title>
-    <link rel="stylesheet" href="style-detail.css">
+    <link rel="stylesheet" href="../css/detail.css">
 </head>
 <body>
 
-    <div class="container">
-        <a href="index.html" class="back-link">← Quay lại cửa hàng</a>
-        
-        <div class="product-detail-container">
-            <!-- Bên trái: Ảnh -->
-            <div class="detail-image">
-                <img id="detail-img" src="" alt="">
-            </div>
+<div class="detail-box" id="detail"></div>
 
-            <!-- Bên phải: Nội dung -->
-            <div class="detail-info">
-                <h1 id="detail-name">Tên sản phẩm</h1>
-                <p class="detail-price" id="detail-price">0đ</p>
-                <p class="detail-status">Tình trạng: <span id="detail-status">...</span></p>
-                
-                <div class="description">
-                    <h3>Mô tả chi tiết:</h3>
-                    <p>Sản phẩm gấu bông cao cấp, chất liệu bông xoắn 3 chiều cực mềm mại, an toàn cho da tay. Thích hợp làm quà tặng cho người yêu hoặc trẻ em.</p>
-                </div>
+<script>
+function getData(){
+    const params = new URLSearchParams(window.location.search);
+    return JSON.parse(params.get("data"));
+}
 
-                <button class="buy-btn">Thêm vào giỏ hàng</button>
-            </div>
-        </div>
+const product = getData();
+
+document.getElementById("detail").innerHTML = `
+    <img src="${product.img}" alt="${product.name}">
+
+    <h1>${product.name}</h1>
+
+    <p class="price"> Giá: ${product.price}</p>
+    <p class="status"> Tình trạng: ${product.status}</p>
+
+    <p class="desc">
+        Đây là sản phẩm gấu bông chất lượng cao, mềm mại, thích hợp làm quà tặng cho bạn bè và người thân ^^
+    </p>
+
+    <div class="buttons">
+        <a href="page7.html" class="back">⬅ Quay lại</a>
+        <button class="buy"> Mua ngay</button>
     </div>
+`;
+</script>
 
-    <script src="script-detail.js"></script>
 </body>
 </html>

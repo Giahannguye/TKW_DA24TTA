@@ -2,72 +2,56 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Tính học phí</title>
+    <title>Đóng Tiền Học Phí</title>
     <link rel="stylesheet" href="../css/style6.css">
 </head>
 <body>
 
-<h1>TÍNH HỌC PHÍ</h1>
-
 <div class="container">
 
-    <div class="row">
-        <input type="text" id="ten" placeholder="Nhập tên">
+    <h1> PHIẾU ĐÓNG HỌC PHÍ</h1>
+
+    <div class="form">
+        <input type="text" id="ten" placeholder="Nhập họ tên">
         <input type="number" id="stc" placeholder="Nhập số tín chỉ">
-        <button onclick="them()">Thêm</button>
+        <button onclick="taoPhieu()">Tạo phiếu</button>
     </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Tên</th>
-                <th>STC</th>
-                <th>Học phí</th>
-                <th>Xóa</th>
-            </tr>
-        </thead>
-        <tbody id="danhsach">
-            <tr>
-                <td>Nguyễn Văn A</td>
-                <td>3</td>
-                <td>1,500,000</td>
-                <td><button onclick="xoa(this)">Xóa</button></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="bill">
+
+        <p><b>Họ tên:</b> <span id="kqTen">---</span></p>
+        <p><b>Số tín chỉ:</b> <span id="kqStc">---</span></p>
+        <p><b>Học phí:</b> <span id="kqTien">---</span></p>
+
+        <p class="status">
+            Trạng thái: <span id="kqTrangThai">---</span>
+        </p>
+
+    </div>
 
 </div>
 
 <script>
-function them() {
-    let ten = document.getElementById("ten").value;
-    let stc = document.getElementById("stc").value;
+function taoPhieu(){
 
-    if (ten === "" || stc === "") {
-        alert("Nhập đầy đủ!");
+    let ten = document.getElementById("ten").value;
+    let stc = parseInt(document.getElementById("stc").value);
+
+    if(ten === "" || isNaN(stc)){
+        alert("Vui lòng nhập đầy đủ!");
         return;
     }
 
     let hocphi = stc * 500000;
 
-    let row = `
-        <tr>
-            <td>${ten}</td>
-            <td>${stc}</td>
-            <td>${hocphi.toLocaleString()}</td>
-            <td><button onclick="xoa(this)">Xóa</button></td>
-        </tr>
-    `;
+    document.getElementById("kqTen").innerText = ten;
+    document.getElementById("kqStc").innerText = stc;
+    document.getElementById("kqTien").innerText =
+        hocphi.toLocaleString() + " VNĐ";
 
-    document.getElementById("danhsach").innerHTML += row;
-
-    // reset input
-    document.getElementById("ten").value = "";
-    document.getElementById("stc").value = "";
-}
-
-function xoa(btn) {
-    btn.parentElement.parentElement.remove();
+    // tự động trạng thái
+    document.getElementById("kqTrangThai").innerText = "ĐÃ ĐÓNG";
+    document.getElementById("kqTrangThai").style.color = "green";
 }
 </script>
 

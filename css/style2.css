@@ -1,40 +1,76 @@
-*{
-	margin:0;
-	padding:0;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body{
+    font-family: Arial;
+    background: linear-gradient(135deg,#74ebd5,#9face6);
+    height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
-div.container{
-	background-color: rgb(241, 96, 120);
-	margin-left: 50px;
-	margin-right: 50px;
-	padding:30px;
-	border:2px solid black;
-	border-radius: 10px;
-	box-shadow: 0 0 10px gray;
+
+.login-box{
+    width: 350px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
 }
-form#frmLogin{
-	background-color: pink;
-	padding:20px;
+
+h2{
+    color:#2c3e50;
+    margin-bottom:5px;
 }
-h3#title{
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	color: rgb(199, 4, 199);
-	text-align: center;
+
+p{
+    color:#777;
+    margin-bottom:20px;
 }
-div.form-group{
-	margin-bottom: 5px;
-	margin-top: 5px;
+
+label{
+    display:block;
+    text-align:left;
+    margin-top:10px;
+    font-weight:bold;
+    color:#444;
 }
-input.form-control{
-	display: block;
-	width: 100%;
-	padding:2px;
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    outline:none;
 }
-input.button{
-	backgroud-color: brown;
-	border-radius:5px;
-	padding:3px;
-	color:rgb(197, 19, 197);
-	border: none;
+
+input:focus{
+    border-color:#3498db;
+}
+
+button{
+    width:100%;
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button[type="submit"]{
+    background:#3498db;
+    color:white;
+}
+
+button[type="submit"]:hover{
+    background:#2980b9;
+}
+
+button[type="reset"]{
+    background:#ee5e4e;
+    color:white;
+}
+
+button[type="reset"]:hover{
+    background:#ec306e;
 }

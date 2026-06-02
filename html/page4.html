@@ -1,74 +1,83 @@
 ﻿<!DOCTYPE html>
-<html lang = "vi">
-    <head>
-        <meta charset="UTF-8">
-        <title> Hóa Đơn Thanh Toán </title>
-        
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hóa Đơn Thanh Toán</title>
     <link rel="stylesheet" href="../css/style4.css">
-    </head>
-    <body> 
-        <h2> Hóa Đơn Thanh Toán</h2>
-        <table border="1" cellpadding = "10" cellspacing="0">
-            <thead>
-                <tr>
-                    <th> Số Thứ Tự </th>
-                    <th> Tên Sản Phẩm</th>
-                    <th> Số Lượng</th>
-                    <th> Đơn Giá</th>
-                    <th> Thành Tiền</th>
-                </tr>
-            </thead>
-        <tbody>
+</head>
+<body>
+
+    <div class="invoice">
+        <h2>HÓA ĐƠN THANH TOÁN</h2>
+
+        <table>
             <tr>
-                <td>1</td>
-                <td>A</td>
-                <td class="sl">3</td>
-                <td class="dongia">1000</td>
-                <td class="tt">?</td>
+                <th>Sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
             </tr>
-             <tr>
-                <td>2</td>
-                <td>B</td>
-                <td class="sl">4</td>
-                <td class="dongia">2000</td>
-                <td class="tt">?</td>
-            </tr>
-             <tr>
-                <td>3</td>
-                <td>C</td>
-                <td class="sl">5</td>
-                <td class="dongia">4000</td>
-                <td class="tt">?</td>
-            </tr>
-             <tr>
-                <td>4</td>
-                <td>D</td>
-                <td class="sl">2</td>
-                <td class="dongia">5000</td>
-                <td class="tt">?</td>
-             </tr>
-        </tbody>
-        <tfoot>
+
             <tr>
-                <td colspan="4" align="center">Tổng Thanh Toán</td>
-                <td id="tong">?</td>
-                </td>
+                <td>Bánh</td>
+                <td class="gia">10000</td>
+                <td><input type="number" class="sl" min="0" value="0"></td>
+                <td class="tt">0</td>
             </tr>
-        </tfoot>
-    </table>
-            <script>
-                const donGia = document.getElementsByClassName("dg");
-                const soLuong = document.getElementsByClassName("sl");
-                const thanhTien= document.getElementsByClassName("tt");
-                let tong = 0 ;
-                for (let i = 0 ; i<donGia.length;i++) {
-                    let gia = parseInt(donGia[i].innerHTML)
-                    let luong = parseInt(soLuong[i].innerHTML)
-                    let st = gia * luong ;
-                    thanhTien[i].innerHTML = st ; 
-                    tong = tong + st ;
-                }
-                document.getElementById("tong").innerHTML = tong ;
-            </script>      
-    </body>
+
+            <tr>
+                <td>Sữa</td>
+                <td class="gia">15000</td>
+                <td><input type="number" class="sl" min="0" value="0"></td>
+                <td class="tt">0</td>
+            </tr>
+
+            <tr>
+                <td>Nước ngọt</td>
+                <td class="gia">12000</td>
+                <td><input type="number" class="sl" min="0" value="0"></td>
+                <td class="tt">0</td>
+            </tr>
+            <tr>
+                <td>Thịt Bò</td>
+                <td class="gia">170000</td>
+                <td><input type="number" class="sl" min="0" value="0"></td>
+                <td class="tt">0</td>
+            </tr>
+        </table>
+
+        <br>
+
+        <button onclick="tinhTien()">Tính Tiền</button>
+
+        <h3>Tổng thanh toán: <span id="tong">0</span> đ</h3>
+    </div>
+
+    <script>
+        function tinhTien() {
+
+            const gia = document.getElementsByClassName("gia");
+            const sl = document.getElementsByClassName("sl");
+            const tt = document.getElementsByClassName("tt");
+
+            let tong = 0;
+
+            for(let i = 0; i < gia.length; i++) {
+
+                let donGia = parseInt(gia[i].innerHTML);
+                let soLuong = parseInt(sl[i].value);
+
+                let thanhTien = donGia * soLuong;
+
+                tt[i].innerHTML = thanhTien.toLocaleString('vi-VN');
+
+                tong += thanhTien;
+            }
+
+            document.getElementById("tong").innerHTML =
+            tong.toLocaleString('vi-VN');
+        }
+    </script>
+
+</body>
 </html>

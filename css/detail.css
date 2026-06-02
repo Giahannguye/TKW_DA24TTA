@@ -1,72 +1,70 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    padding: 40px;
-    margin: 0;
+body{
+    font-family: Arial;
+    background: linear-gradient(135deg,#ffe0f0,#e0f7ff);
+    margin:0;
 }
 
-.container {
-    max-width: 900px;
-    margin: auto;
+.detail-box{
+    width: 400px;
+    margin: 40px auto;
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
 }
 
-.back-link {
-    text-decoration: none;
-    color: #3498db;
-    display: inline-block;
-    margin-bottom: 20px;
+.detail-box img{
+    width:100%;
+    border-radius:15px;
+    height:250px;
+    object-fit:cover;
 }
 
-.product-detail-container {
-    display: flex;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    gap: 30px;
+h1{
+    color:#e91e63;
+    margin:10px 0;
 }
 
-.detail-image {
-    flex: 1;
+.price{
+    color:#d81b60;
+    font-weight:bold;
+    font-size:18px;
 }
 
-.detail-image img {
-    width: 100%;
-    border-radius: 8px;
+.status{
+    color:#555;
 }
 
-.detail-info {
-    flex: 1.2;
+.desc{
+    margin:15px 0;
+    font-size:14px;
+    color:#666;
 }
 
-#detail-name {
-    margin-top: 0;
-    color: #333;
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
 }
 
-.detail-price {
-    font-size: 24px;
-    color: #e74c3c;
-    font-weight: bold;
+.back{
+    text-decoration:none;
+    padding:10px 12px;
+    background:#9e9e9e;
+    color:white;
+    border-radius:10px;
 }
 
-.detail-status {
-    color: #27ae60;
-    font-weight: bold;
+.buy{
+    padding:10px 12px;
+    background:#e91e63;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
 }
 
-.buy-btn {
-    width: 100%;
-    padding: 15px;
-    background: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.buy-btn:hover {
-    background: #2980b9;
+.buy:hover{
+    background:#c2185b;
 }

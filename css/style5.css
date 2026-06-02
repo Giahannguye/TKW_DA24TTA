@@ -1,56 +1,66 @@
-body {
+body{
     font-family: Arial, sans-serif;
-    text-align: center;
-    background: #f4f6f8;
+    background: linear-gradient(135deg,#ffd6e8,#d6f5ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-h1 {
-    margin: 20px;
-    color: #2d3436;
-}
-
-table {
-    border-collapse: collapse;
-    margin: auto;
-    width: 75%;
+.container{
     background: white;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-th, td {
-    border: 1px solid #dcdde1;
-    padding: 12px;
+    width: 500px;
+    padding: 30px;
+    border-radius: 25px;
     text-align: center;
-    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-thead th {
-    background: #be91e2;
-    color: white;
+h1{
+    color: #ff69b4;
+    margin-bottom: 15px;
 }
 
-tbody th {
-    background: #dfe6e9;
-    color: #2d3436;
-}
-
-tbody tr:nth-child(even) {
-    background: #f8f9fa;
-}
-
-.five {
-    background: #ffeaa7;
+label{
+    font-size: 18px;
+    color: #666;
     font-weight: bold;
 }
 
-.diagonal {
-    background: #8a7ee2;
-    color: white;
-    font-weight: bold;
+select{
+    width: 250px;
+    padding: 12px;
+    margin-top: 15px;
+    border: 3px solid #ffb6c1;
+    border-radius: 15px;
+    font-size: 17px;
+    background-color: #fffafc;
+    cursor: pointer;
+    outline: none;
 }
 
-td:hover {
-    background: #d28ee7;
-    transition: 0.2s;
+select:hover{
+    border-color: #ff69b4;
+}
+
+.result{
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #ffc4d8;
+    border: 3px dashed #f05a73;
+    font-size: 22px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.result h2{
+    color: #00bcd4;
+    margin-bottom: 15px;
+}
+
+.result:hover{
+    transform: scale(1.02);
+    transition: 0.3s;
 }
