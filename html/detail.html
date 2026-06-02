@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Chi tiết sản phẩm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
     <link rel="stylesheet" href="../css/detail.css">
 </head>
 <body>
@@ -32,9 +34,117 @@ document.getElementById("detail").innerHTML = `
     <div class="buttons">
         <a href="page7.html" class="back">⬅ Quay lại</a>
         <button class="buy"> Mua ngay</button>
+    <div class="product-container">
+        <div class="product-images">
+            <div class="main-image">
+                <img src="https://picsum.photos/id/1025/500/500" alt="Gấu Bông Kitty" id="featured-img">
+            </div>
+            <div class="thumbnail-list">
+        </div>
+
+        <div class="product-details">
+            <span class="category">Gấu Bông Cao Cấp / Quà Tặng</span>
+            <h1 class="product-title">Gấu Bông Teddy Đeo Nơ Khổng Lồ - Bông Gòn Trắng Tinh Khiết</h1>
+            
+            <div class="rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="reviews-count">(124 đánh giá - 450 đã bán)</span>
+            </div>
+
+            <div class="product-price">
+                <span class="current-price">290.000đ</span>
+                <span class="old-price">390.000đ</span>
+                <span class="discount">Giảm 25%</span>
+            </div>
+
+            <p class="short-description">
+                Gấu bôn
+            <div class="option-group">
+                <h3 class="option-title">Dịch vụ đi kèm miễn phí:</h3>
+                <div class="service-options">
+                    <label><input type="checkbox" checked> Gói quà nơ kính</label>
+                    <label><input type="checkbox"> Viết thiệp chúc mừng</label>
+                    <label><input type="checkbox"> Nén nhỏ hút chân không (Để dễ vận chuyển)</label>
+                </div>
+            </div>
+
+            <div class="purchase-group">
+                <div class="quantity-selector">
+                    <button onclick="updateQuantity(-1)">-</button>
+                    <input type="number" id="quantity" value="1" min="1">
+                    <button onclick="updateQuantity(1)">+</button>
+                </div>
+                <button class="btn-add-cart">Thêm Vào Giỏ</button>
+                <button class="btn-buy-now">Mua Ngay</button>
+            </div>
+        </div>
     </div>
 `;
 </script>
 
+<<<<<<< HEAD
+=======
+    <div class="tabs-container">
+        <div class="tab-header">
+            <button class="tab-link active" onclick="openTab(event, 'desc')">Mô tả sản phẩm</button>
+            <button class="tab-link" onclick="openTab(event, 'specs')">Thông số chi tiết</button>
+            <button class="tab-link" onclick="openTab(event, 'policy')">Chính sách giao hàng & Đổi trả</button>
+        </div>
+
+        <div id="desc" class="tab-content active">
+            <h2>Ưu điểm vượt trội của Gấu Bông bên Shop</h2>
+            <p>Không giống như các loại gấu bông giá rẻ trên thị trường nhồi tạp chất hoặc vải vụn, sản phẩm của shop luôn đảm bảo những tiêu chuẩn khắt khe nhất để bảo vệ sức khỏe người dùng.</p>
+            <ul>
+                <li><b>Chất liệu vải:</b> Nhung mịn màng, sợi vải siêu nhỏ dệt chặt giúp gấu không bao giờ bị rụng lông, không sợ bé hít phải.</li>
+                <li><b>Công nghệ nhồi bông:</b> Sử dụng máy đánh gòn tự động, bông tơi xốp, giữ form cực tốt dù có ôm hay đè chặt.</li>
+                <li><b>Đường may:</b> Được may thủ công tỉ mỉ bằng chỉ đôi chịu lực, không lo bung rách khi giặt máy.</li>
+            </ul>
+        </div>
+
+        <div id="specs" class="tab-content">
+            <h2>Thông số kỹ thuật sản phẩm</h2>
+            <table class="specs-table">
+                <tr><td>Tên sản phẩm</td><td>Gấu Bông Teddy Đeo Nơ Cao Cấp</td></tr>
+                <tr><td>Chất liệu bên ngoài</td><td>Vải nhung co giãn 4 chiều mềm mịn</td></tr>
+                <tr><td>Chất liệu lõi bên trong</td><td>100% Bông gòn 3D trắng tinh khiết tinh chế</td></tr>
+                <tr><td>Chứng nhận an toàn</td><td>Đạt chuẩn an toàn đồ chơi trẻ em Việt Nam (CR)</td></tr>
+                <tr><td>Cách giặt</td><td>Có thể giặt máy (Cho vào túi giặt) hoặc giặt tay</td></tr>
+            </table>
+        </div>
+
+        <div id="policy" class="tab-content">
+            <h2>Cam kết của Shop & Chính sách đổi trả</h2>
+            <ul>
+                <li>Giao hàng siêu tốc trong vòng <b>2 giờ</b> tại khu vực nội thành (Ship hỏa tốc).</li>
+                <li>Bảo hành đường chỉ may và bông gòn vĩnh viễn trong suốt quá trình sử dụng.</li>
+                <li>Khách hàng được quyền <b>Kiểm tra hàng trước khi thanh toán</b>, nếu không giống hình hoặc gấu không sướng tay được quyền trả lại ngay lập tức.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function changeImage(element) {
+            document.getElementById('featured-img').src = element.src;
+            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function updateQuantity(change) {
+            let qtyInput = document.getElementById('quantity');
+            let currentVal = parseInt(qtyInput.value);
+            if (!isNaN(currentVal)) {
+                let newVal = currentVal + change;
+                if (newVal >= 1) qtyInput.value = newVal;
+            }
+        }
+
+        function openTab(evt, tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+>>>>>>> 3d507692dd5e683f5cd5f72a0025c9c27f6da7e6
 </body>
 </html>

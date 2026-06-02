@@ -2,56 +2,60 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảng Cửu Chương</title>
+    <title> Bảng Cửu Chương</title>
     <link rel="stylesheet" href="../css/style5.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <h1> BẢNG CỬU CHƯƠNG </h1>
+<h1> Bảng Cửu Chương</h1>
+<p class="sub">Chọn một chương để mở ra học nha ><</p>
 
-        <label for="tableSelect">
-            Chọn bảng cửu chương muốn học:
-        </label>
+<div class="menu" id="menu"></div>
 
-        <select id="tableSelect" onchange="showTable()">
-            <option value="">-- Chọn bảng nhân --</option>
-            <option value="2">Bảng nhân 2</option>
-            <option value="3">Bảng nhân 3</option>
-            <option value="4">Bảng nhân 4</option>
-            <option value="5">Bảng nhân 5</option>
-            <option value="6">Bảng nhân 6</option>
-            <option value="7">Bảng nhân 7</option>
-            <option value="8">Bảng nhân 8</option>
-            <option value="9">Bảng nhân 9</option>
-            <option value="10">Bảng nhân 10</option>
-        </select>
+<div class="card">
+    <h2 id="title">Chưa mở bảng cửu chương</h2>
+    <div id="content"></div>
+</div>
 
-        <div id="result" class="result">
-            Hãy chọn một bảng nhân nhé!
-        </div>
-    </div>
+<script>
+    const menu = document.getElementById("menu");
 
-    <script>
-        function showTable() {
-            let number = document.getElementById("tableSelect").value;
+    for (let i = 1; i <= 10; i++) {
+        let btn = document.createElement("button");
+        btn.className = "btn";
+        btn.innerHTML = " Chương " + i;
 
-            if(number === "") {
-                document.getElementById("result").innerHTML =
-                "Hãy chọn một bảng nhân nhé!";
-                return;
-            }
+        btn.onclick = () => openGift(i, btn);
+        menu.appendChild(btn);
+    }
 
-            let text = `<h2>Bảng nhân ${number}</h2>`;
+    function openGift(n, btn) {
+        document.getElementById("title").innerText = " Bạn nhận được bảng " + n + "!";
 
-            for(let i = 1; i <= 10; i++) {
-                text += `${number} × ${i} = ${number * i}<br>`;
-            }
+        let html = "";
 
-            document.getElementById("result").innerHTML = text;
+        for (let i = 1; i <= 10; i++) {
+            html += `<div class="line"> ${n} × ${i} = <b>${n * i}</b></div>`;
         }
-    </script>
+
+        const content = document.getElementById("content");
+
+        content.classList.remove("show");
+        void content.offsetWidth;
+        content.classList.add("show");
+
+        content.innerHTML = html;
+
+        // đổi trạng thái nút
+        document.querySelectorAll(".btn").forEach((b, index) => {
+            if (index + 1 === n) {
+                b.innerHTML = " Đã mở chương " + n;
+                b.classList.add("active");
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
