@@ -2,20 +2,22 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title> Bảng Cửu Chương</title>
+    <title>Bảng Cửu Chương</title>
     <link rel="stylesheet" href="../css/style5.css">
 </head>
 
 <body>
 
-<h1> Bảng Cửu Chương</h1>
-<p class="sub">Chọn một chương để mở ra học nha ><</p>
+<div class="candy-wrapper">
+    <h1 class="candy-title">Bảng Cửu Chương </h1>
+    <p class="candy-subtitle">Nhấp vào các chương để mở bài </p>
 
-<div class="menu" id="menu"></div>
+    <div class="candy-menu" id="menu"></div>
 
-<div class="card">
-    <h2 id="title">Chưa mở bảng cửu chương</h2>
-    <div id="content"></div>
+    <div class="candy-card">
+        <h2 id="title"> Các chương đang đóng... Chọn một chương để mở  </h2>
+        <div id="content" class="candy-content"></div>
+    </div>
 </div>
 
 <script>
@@ -23,37 +25,37 @@
 
     for (let i = 1; i <= 10; i++) {
         let btn = document.createElement("button");
-        btn.className = "btn";
+        btn.className = "kẹo kẹo-" + i;
         btn.innerHTML = " Chương " + i;
 
-        btn.onclick = () => openGift(i, btn);
+        btn.onclick = () => openTable(i, btn);
         menu.appendChild(btn);
     }
 
-    function openGift(n, btn) {
-        document.getElementById("title").innerText = " Bạn nhận được bảng " + n + "!";
+    function openTable(n, btn) {
+        document.getElementById("title").innerText = " Bạn đang học bảng nhân " + n + " >< ";
 
         let html = "";
 
         for (let i = 1; i <= 10; i++) {
-            html += `<div class="line"> ${n} × ${i} = <b>${n * i}</b></div>`;
+            html += '<div class="sticker-line">' + n + ' × ' + i + ' = <b class="candy-result">' + (n * i) + '</b></div>';
         }
 
         const content = document.getElementById("content");
 
-        content.classList.remove("show");
-        void content.offsetWidth;
-        content.classList.add("show");
+        content.classList.remove("pop");
+        void content.offsetWidth; 
+        content.classList.add("pop");
 
         content.innerHTML = html;
 
-        // đổi trạng thái nút
-        document.querySelectorAll(".btn").forEach((b, index) => {
-            if (index + 1 === n) {
-                b.innerHTML = " Đã mở chương " + n;
-                b.classList.add("active");
-            }
+        document.querySelectorAll(".kẹo").forEach((b, index) => {
+            b.classList.remove("active");
+            b.innerHTML = " Chương  " + (index + 1);
         });
+
+        btn.innerHTML = " Đang Học Chương " + n;
+        btn.classList.add("active");
     }
 </script>
 

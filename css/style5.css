@@ -1,77 +1,145 @@
-body {
-    font-family: "Arial Rounded MT Bold", Arial;
-    text-align: center;
-    background: linear-gradient(120deg, #ffecd2, #fcb69f);
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* tiêu đề */
-h1 {
-    margin-top: 20px;
-    color: #2c3e50;
+body {
+    background: linear-gradient(135deg, #fff0f5 0%, #e6f2ff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.sub {
-    color: #444;
+.candy-wrapper {
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
 }
 
-/* menu */
-.menu {
-    margin: 20px;
+.candy-title {
+    font-size: 30px;
+    color: #ff789b;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
-.btn {
-    padding: 12px 14px;
-    margin: 6px;
+.candy-subtitle {
+    font-size: 14px;
+    color: #a1b0cb;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.candy-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.kẹo {
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 700;
     border: none;
-    border-radius: 15px;
-    background: #ff6b6b;
-    color: white;
-    font-size: 16px;
+    border-radius: 30px; 
     cursor: pointer;
-    transition: 0.2s;
+    color: white;
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.05); 
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-.btn:hover {
-    transform: scale(1.1);
-    background: #ff4757;
+.kẹo:hover {
+    transform: translateY(-4px) scale(1.08);
+}
+.kẹo-1 { background-color: #ff9ff3; }
+.kẹo-2 { background-color: #feca57; }
+.kẹo-3 { background-color: #ff6b6b; }
+.kẹo-4 { background-color: #48dbfb; }
+.kẹo-5 { background-color: #1dd1a1; }
+.kẹo-6 { background-color: #a55eea; }
+.kẹo-7 { background-color: #ff9f43; }
+.kẹo-8 { background-color: #0abde3; }
+.kẹo-9 { background-color: #10ac84; }
+.kẹo-10 { background-color: #ee5253; }
+
+.kẹo.active {
+    transform: scale(0.95);
+    border: 3px dashed #ffffff; 
+    box-shadow: none;
 }
 
-.btn.active {
-    background: #2ed573;
+.candy-card {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 30px;
+    border: 4px dashed #ffd3e2;
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.2);
 }
 
-/* khung học */
-.card {
-    width: 320px;
-    margin: 20px auto;
-    background: white;
-    border-radius: 20px;
-    padding: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.candy-card h2 {
+    font-size: 17px;
+    color: #ff789b;
+    margin-bottom: 25px;
 }
 
-/* hiệu ứng mở quà */
-#content.show {
-    animation: pop 0.4s ease;
+.candy-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    opacity: 0;
 }
 
-@keyframes pop {
-    from { transform: scale(0.5); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+@media (min-width: 480px) {
+    .candy-content {
+        grid-template-columns: 1fr 1fr; 
+    }
 }
 
-/* dòng phép tính */
-.line {
-    padding: 8px;
-    margin: 5px 0;
-    background: #fff3cd;
-    border-radius: 10px;
-    font-size: 18px;
-    animation: fade 0.3s ease;
+.sticker-line {
+    background: #fff9fa;
+    padding: 12px;
+    border-radius: 15px;
+    font-size: 16px;
+    color: #64748b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ffe3ec;
+    transition: transform 0.2s;
 }
 
-@keyframes fade {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.sticker-line:nth-child(even) { transform: rotate(1deg); }
+.sticker-line:nth-child(odd) { transform: rotate(-1deg); }
+
+.sticker-line:hover {
+    background: #fff0f3;
+    transform: scale(1.03) rotate(0deg);
+}
+
+.candy-result {
+    color: #ff4d7d;
+    font-size: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+}
+
+.candy-content.pop {
+    animation: candyPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes candyPop {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
