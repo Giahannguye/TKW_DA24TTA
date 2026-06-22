@@ -1,36 +1,170 @@
-body{
-    font-family: Arial;
-    background:#f4f4f4;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.invoice{
-    width:700px;
-    margin:30px auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg,#00b894,#00cec9);
+    padding: 20px;
+}
+
+.invoice-card{
+    width: 900px;
+    max-width: 100%;
+    background: #fff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+h1{
+    text-align: center;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.subtitle{
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
 }
 
 table{
-    width:100%;
-    border-collapse:collapse;
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
-th,td{
-    border:1px solid #ddd;
-    padding:10px;
-    text-align:center;
+thead{
+    background: #009688;
+    color: white;
 }
 
 th{
-    background:#3498db;
-    color:white;
+    padding: 15px;
+    font-size: 16px;
+}
+
+td{
+    padding: 15px;
+    text-align: center;
+}
+
+tbody tr{
+    border-bottom: 1px solid #e5e5e5;
+    transition: 0.3s;
+}
+
+tbody tr:hover{
+    background: #f2fffd;
+}
+
+.gia,
+.tt{
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="number"]{
+    width: 80px;
+    padding: 8px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="number"]:focus{
+    border-color: #009688;
+    box-shadow: 0 0 8px rgba(0,150,136,0.3);
 }
 
 button{
-    padding:10px 20px;
-    background:#2ecc71;
-    color:white;
-    border:none;
-    cursor:pointer;
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #009688;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #00796b;
+    transform: translateY(-2px);
+}
+
+button:active{
+    transform: scale(0.98);
+}
+
+.total-box{
+    margin-top: 25px;
+    padding: 18px;
+    background: #e0f2f1;
+    border-left: 6px solid #009688;
+    border-radius: 12px;
+    text-align: right;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+#tong{
+    color: #009688;
+    font-size: 30px;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive cho điện thoại */
+@media(max-width: 768px){
+
+    .invoice-card{
+        padding: 20px;
+    }
+
+    table{
+        font-size: 14px;
+    }
+
+    th,
+    td{
+        padding: 10px;
+    }
+
+    input[type="number"]{
+        width: 60px;
+    }
+
+    .total-box{
+        font-size: 18px;
+    }
+
+    #tong{
+        font-size: 24px;
+    }
 }

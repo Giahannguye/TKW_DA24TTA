@@ -2,61 +2,71 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Bảng Cửu Chương</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Bảng Cửu Chương</title>
     <link rel="stylesheet" href="../css/style5.css">
 </head>
-
 <body>
 
-<div class="candy-wrapper">
-    <h1 class="candy-title">Bảng Cửu Chương </h1>
-    <p class="candy-subtitle">Nhấp vào các chương để mở bài </p>
+<div class="container">
 
-    <div class="candy-menu" id="menu"></div>
-
-    <div class="candy-card">
-        <h2 id="title"> Các chương đang đóng... Chọn một chương để mở  </h2>
-        <div id="content" class="candy-content"></div>
+    <div class="header">
+        <h1> Bảng Cửu Chương</h1>
+        <p>Chọn bảng cửu chương mà bạn muốn học</p>
     </div>
+
+    <div class="table-list" id="menu"></div>
+
+    <div class="result-card">
+        <h2 id="title"> Chọn một bảng nhân để bắt đầu</h2>
+        <div id="content" class="result-content"></div>
+    </div>
+
 </div>
 
 <script>
-    const menu = document.getElementById("menu");
 
-    for (let i = 1; i <= 10; i++) {
-        let btn = document.createElement("button");
-        btn.className = "kẹo kẹo-" + i;
-        btn.innerHTML = " Chương " + i;
+const menu = document.getElementById("menu");
 
-        btn.onclick = () => openTable(i, btn);
-        menu.appendChild(btn);
+for(let i=1;i<=10;i++){
+
+    let card = document.createElement("div");
+    card.className = "table-card";
+
+    card.innerHTML = `
+        <span class="number">${i}</span>
+        <h3>Bảng Nhân ${i}</h3>
+    `;
+
+    card.onclick = () => openTable(i, card);
+
+    menu.appendChild(card);
+}
+
+function openTable(n, card){
+
+    document.getElementById("title").innerHTML =
+        " Bảng Nhân " + n;
+
+    let html = "";
+
+    for(let i=1;i<=10;i++){
+
+        html += `
+        <div class="line">
+            ${n} × ${i} = <strong>${n*i}</strong>
+        </div>
+        `;
     }
 
-    function openTable(n, btn) {
-        document.getElementById("title").innerText = " Bạn đang học bảng nhân " + n + " >< ";
+    document.getElementById("content").innerHTML = html;
 
-        let html = "";
+    document.querySelectorAll(".table-card")
+    .forEach(item => item.classList.remove("active"));
 
-        for (let i = 1; i <= 10; i++) {
-            html += '<div class="sticker-line">' + n + ' × ' + i + ' = <b class="candy-result">' + (n * i) + '</b></div>';
-        }
+    card.classList.add("active");
+}
 
-        const content = document.getElementById("content");
-
-        content.classList.remove("pop");
-        void content.offsetWidth; 
-        content.classList.add("pop");
-
-        content.innerHTML = html;
-
-        document.querySelectorAll(".kẹo").forEach((b, index) => {
-            b.classList.remove("active");
-            b.innerHTML = " Chương  " + (index + 1);
-        });
-
-        btn.innerHTML = " Đang Học Chương " + n;
-        btn.classList.add("active");
-    }
 </script>
 
 </body>

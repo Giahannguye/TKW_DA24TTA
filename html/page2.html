@@ -2,31 +2,48 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập hệ thống</title>
     <link rel="stylesheet" href="../css/style2.css">
 </head>
-
 <body>
 
-<div class="login-box">
+    <div class="container">
+        <div class="login-card">
 
-    <form id="frmLogin">
+            <div class="logo">
+                ^^
+            </div>
 
-        <h2> ĐĂNG NHẬP HỆ THỐNG</h2>
-        <p>Vui lòng nhập thông tin</p>
+            <h2>Đăng nhập hệ thống</h2>
+            <p>Vui lòng nhập thông tin tài khoản của bạn</p>
 
-        <label>Tên đăng nhập</label>
-        <input type="text" id="txtUsername" placeholder="Nhập user name">
+            <form id="frmLogin">
 
-        <label>Mật khẩu</label>
-        <input type="password" id="txtPassword" placeholder="Nhập mật khẩu">
+                <div class="input-group">
+                    <label for="txtUsername">Tên đăng nhập</label>
+                    <input type="text" id="txtUsername" placeholder="Nhập tên đăng nhập">
+                </div>
 
-        <button type="submit">Đăng nhập</button>
-        <button type="reset">Nhập lại</button>
+                <div class="input-group">
+                    <label for="txtPassword">Mật khẩu</label>
+                    <input type="password" id="txtPassword" placeholder="Nhập mật khẩu">
+                </div>
 
-    </form>
+                <div class="button-group">
+                    <button type="submit" class="btn-login">
+                        Đăng nhập
+                    </button>
 
-</div>
+                    <button type="reset" class="btn-reset">
+                        Nhập lại
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
 
 </body>
 </html>

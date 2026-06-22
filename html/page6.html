@@ -2,57 +2,81 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đóng Tiền Học Phí</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đóng Học Phí</title>
     <link rel="stylesheet" href="../css/style6.css">
 </head>
 <body>
 
 <div class="container">
 
-    <h1> PHIẾU ĐÓNG HỌC PHÍ</h1>
+    <div class="card">
 
-    <div class="form">
-        <input type="text" id="ten" placeholder="Nhập họ tên">
-        <input type="number" id="stc" placeholder="Nhập số tín chỉ">
-        <button onclick="taoPhieu()">Tạo phiếu</button>
-    </div>
+        <h1> PHIẾU ĐÓNG HỌC PHÍ</h1>
+        <p class="subtitle">Hệ thống tự động kiểm tra trạng thái</p>
 
-    <div class="bill">
+        <div class="form">
 
-        <p><b>Họ tên:</b> <span id="kqTen">---</span></p>
-        <p><b>Số tín chỉ:</b> <span id="kqStc">---</span></p>
-        <p><b>Học phí:</b> <span id="kqTien">---</span></p>
+            <input type="text" id="ten" placeholder="Nhập họ tên">
 
-        <p class="status">
-            Trạng thái: <span id="kqTrangThai">---</span>
-        </p>
+            <input type="number" id="stc" placeholder="Nhập số tín chỉ">
+
+            <button onclick="taoPhieu()">Tạo phiếu</button>
+
+        </div>
+
+        <div class="bill">
+
+            <h2> Kết quả</h2>
+
+            <p><b>Họ tên:</b> <span id="kqTen">---</span></p>
+
+            <p><b>Số tín chỉ:</b> <span id="kqStc">---</span></p>
+
+            <p><b>Học phí:</b> <span id="kqTien">---</span></p>
+
+            <p>
+                <b>Trạng thái:</b>
+                <span id="kqTrangThai">---</span>
+            </p>
+
+        </div>
 
     </div>
 
 </div>
 
 <script>
+
 function taoPhieu(){
 
-    let ten = document.getElementById("ten").value;
+    let ten = document.getElementById("ten").value.trim();
     let stc = parseInt(document.getElementById("stc").value);
 
-    if(ten === "" || isNaN(stc)){
-        alert("Vui lòng nhập đầy đủ!");
+    if(ten === "" || isNaN(stc) || stc <= 0){
+        alert("Vui lòng nhập đúng thông tin!");
         return;
     }
 
-    let hocphi = stc * 500000;
+    let hocPhi = stc * 500000;
 
     document.getElementById("kqTen").innerText = ten;
     document.getElementById("kqStc").innerText = stc;
-    document.getElementById("kqTien").innerText =
-        hocphi.toLocaleString() + " VNĐ";
 
-    // tự động trạng thái
-    document.getElementById("kqTrangThai").innerText = "ĐÃ ĐÓNG";
-    document.getElementById("kqTrangThai").style.color = "green";
+    document.getElementById("kqTien").innerText =
+        hocPhi.toLocaleString('vi-VN') + " VNĐ";
+
+    let trangThai = document.getElementById("kqTrangThai");
+
+    if(hocPhi < 3000000){
+        trangThai.innerText = "ĐÃ ĐÓNG";
+        trangThai.className = "paid";
+    }else{
+        trangThai.innerText = "CHƯA ĐÓNG";
+        trangThai.className = "unpaid";
+    }
 }
+
 </script>
 
 </body>
